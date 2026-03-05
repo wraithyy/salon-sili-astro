@@ -2,18 +2,15 @@
 
 /*
  * Coneria Script font for the "Salon SILI" brand wordmark.
- * Place ConeriScript-Demo.otf (or .woff2) into public/fonts/
- * then uncomment the @font-face below. The CSS falls back gracefully
- * to Playfair Display italic if the file is missing.
+ * Source: salon-sili-next/public/fonts/ConeriaScript.ttf
  */
-/* @font-face {
+@font-face {
   font-family: "Coneria Script";
-  src: url("/salon-sili-astro/fonts/ConeriScript.woff2") format("woff2"),
-       url("/salon-sili-astro/fonts/ConeriScript.otf") format("opentype");
+  src: url("/salon-sili-astro/fonts/ConeriaScript.ttf") format("truetype");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
-} */
+}
 
 @theme {
   --color-cream: #faf7f2;
