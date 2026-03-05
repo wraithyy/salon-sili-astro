@@ -1,5 +1,20 @@
 @import "tailwindcss";
 
+/*
+ * Coneria Script font for the "Salon SILI" brand wordmark.
+ * Place ConeriScript-Demo.otf (or .woff2) into public/fonts/
+ * then uncomment the @font-face below. The CSS falls back gracefully
+ * to Playfair Display italic if the file is missing.
+ */
+/* @font-face {
+  font-family: "Coneria Script";
+  src: url("/salon-sili-astro/fonts/ConeriScript.woff2") format("woff2"),
+       url("/salon-sili-astro/fonts/ConeriScript.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+} */
+
 @theme {
   --color-cream: #faf7f2;
   --color-cream-dark: #f0ebe3;
@@ -14,6 +29,7 @@
 
   --font-sans: "Inter", system-ui, -apple-system, sans-serif;
   --font-display: "Playfair Display", Georgia, serif;
+  --font-brand: "Coneria Script", "Playfair Display", Georgia, serif;
 }
 
 html {
@@ -59,19 +75,24 @@ body {
   transform: translateY(0);
 }
 
-@keyframes float {
-  0%, 100% { transform: translateY(0) rotate(0deg); opacity: 0; }
-  10% { opacity: 1; }
-  90% { opacity: 1; }
-  100% { transform: translateY(-100vh) rotate(720deg); opacity: 0; }
-}
-
-.particle {
-  position: absolute;
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: var(--color-gold-light);
-  opacity: 0;
+/* Brush-accent section divider */
+.brush-divider {
+  position: relative;
+  height: 80px;
+  overflow: hidden;
+  opacity: 0.12;
   pointer-events: none;
 }
+
+.brush-divider img {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%) rotate(-8deg);
+  width: 480px;
+  max-width: 90vw;
+  height: auto;
+  mix-blend-mode: multiply;
+  filter: sepia(0.3) saturate(1.4);
+}
+

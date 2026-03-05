@@ -1,0 +1,1 @@
+Place ConeriScript.woff2 or ConeriScript.otf here, then uncomment @font-face in src/styles/global.css

@@ -1,0 +1,28 @@
+---
+interface Props {
+  flip?: boolean
+  bg?: "cream" | "white" | "charcoal"
+}
+
+const { flip = false, bg = "cream" } = Astro.props
+
+const bgClass: Record<string, string> = {
+  cream: "bg-cream",
+  white: "bg-white",
+  charcoal: "bg-charcoal",
+}
+---
+
+<div
+  class:list={["brush-divider", bgClass[bg]]}
+  aria-hidden="true"
+  style={flip ? "transform: scaleX(-1)" : undefined}
+>
+  <img
+    src={`${import.meta.env.BASE_URL}/img/brush-sm.jpg`}
+    alt=""
+    width="800"
+    height="532"
+    loading="lazy"
+  />
+</div>

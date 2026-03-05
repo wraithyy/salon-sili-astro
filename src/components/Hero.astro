@@ -14,8 +14,29 @@
   <!-- Decorative overlay -->
   <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_transparent_0%,_rgba(0,0,0,0.3)_100%)]"></div>
 
-  <!-- Particles container -->
-  <div class="absolute inset-0" id="particles"></div>
+  <!-- Brush accent image -->
+  <div class="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden="true">
+    <img
+      src={`${import.meta.env.BASE_URL}/img/brush.jpg`}
+      alt=""
+      class="hero-brush"
+      loading="eager"
+      width="1920"
+      height="1278"
+    />
+  </div>
+
+  <!--
+    Organic ambient blobs: Large, heavily blurred shapes that drift slowly
+    across the background. Creates a living gradient mesh effect that feels
+    luxurious and organic, unlike generic floating-dot particle systems.
+    GPU-friendly: only transform and opacity are animated.
+  -->
+  <div class="absolute inset-0 overflow-hidden" aria-hidden="true" id="ambient-blobs">
+    <div class="ambient-blob ambient-blob--gold"></div>
+    <div class="ambient-blob ambient-blob--rose"></div>
+    <div class="ambient-blob ambient-blob--light"></div>
+  </div>
 
   <!-- Content -->
   <div class="relative z-10 text-center px-4 max-w-3xl mx-auto">
@@ -24,9 +45,9 @@
     >
       Liberec &middot; Benešovo náměstí
     </p>
-    <h1 class="font-display text-5xl sm:text-7xl lg:text-8xl text-white font-bold mb-6 sm:mb-8 leading-tight">
-      Salon<br />
-      <span class="text-gold italic">SILI</span>
+    <h1 class="text-5xl sm:text-7xl lg:text-8xl text-white font-bold mb-6 sm:mb-8 leading-tight">
+      <span class="font-display">Salon</span><br />
+      <span class="font-brand text-gold text-6xl sm:text-8xl lg:text-9xl">SILI</span>
     </h1>
     <p class="text-white/70 text-lg sm:text-xl max-w-xl mx-auto mb-8 sm:mb-12 leading-relaxed">
       Soukromý kosmetický salón v samém centru Liberce. Profesionální pedikúra,
@@ -56,17 +77,96 @@
   </div>
 </section>
 
-<script>
-  const container = document.getElementById("particles")!
-
-  for (let i = 0; i < 20; i++) {
-    const particle = document.createElement("div")
-    particle.classList.add("particle")
-    particle.style.left = `${Math.random() * 100}%`
-    particle.style.top = `${Math.random() * 100}%`
-    particle.style.width = `${3 + Math.random() * 5}px`
-    particle.style.height = particle.style.width
-    particle.style.animation = `float ${8 + Math.random() * 12}s linear ${Math.random() * 10}s infinite`
-    container.appendChild(particle)
+<style>
+  .ambient-blob {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.18;
+    pointer-events: none;
+    will-change: transform;
   }
-</script>
+
+  /* Warm gold glow, drifts diagonally */
+  .ambient-blob--gold {
+    width: 55vw;
+    height: 55vw;
+    max-width: 600px;
+    max-height: 600px;
+    background: radial-gradient(circle, var(--color-gold) 0%, transparent 70%);
+    top: -10%;
+    left: -15%;
+    animation: drift-a 25s ease-in-out infinite alternate;
+  }
+
+  /* Soft rose accent, drifts opposite */
+  .ambient-blob--rose {
+    width: 45vw;
+    height: 45vw;
+    max-width: 500px;
+    max-height: 500px;
+    background: radial-gradient(circle, var(--color-rose) 0%, transparent 70%);
+    bottom: -10%;
+    right: -10%;
+    animation: drift-b 30s ease-in-out infinite alternate;
+  }
+
+  /* Subtle warm highlight in center area */
+  .ambient-blob--light {
+    width: 40vw;
+    height: 40vw;
+    max-width: 450px;
+    max-height: 450px;
+    background: radial-gradient(circle, var(--color-gold-light) 0%, transparent 70%);
+    top: 30%;
+    left: 40%;
+    opacity: 0.1;
+    animation: drift-c 35s ease-in-out infinite alternate;
+  }
+
+  @keyframes drift-a {
+    from { transform: translate(0, 0) scale(1); }
+    to   { transform: translate(15vw, 12vh) scale(1.15); }
+  }
+
+  @keyframes drift-b {
+    from { transform: translate(0, 0) scale(1); }
+    to   { transform: translate(-12vw, -10vh) scale(1.1); }
+  }
+
+  @keyframes drift-c {
+    from { transform: translate(0, 0) scale(1); }
+    to   { transform: translate(-8vw, 8vh) scale(1.2); }
+  }
+
+  /* Brush accent: positioned right, softened, blended into dark bg */
+  .hero-brush {
+    position: absolute;
+    right: -5%;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 55%;
+    max-width: 700px;
+    height: auto;
+    opacity: 0.18;
+    mix-blend-mode: screen;
+    filter: brightness(1.1) contrast(1.1);
+    mask-image: radial-gradient(ellipse 70% 60% at 60% 50%, black 30%, transparent 80%);
+    -webkit-mask-image: radial-gradient(ellipse 70% 60% at 60% 50%, black 30%, transparent 80%);
+  }
+
+  @media (max-width: 640px) {
+    .hero-brush {
+      width: 80%;
+      right: -15%;
+      opacity: 0.12;
+    }
+  }
+
+  /* Respect reduced motion: freeze blobs in place */
+  @media (prefers-reduced-motion: reduce) {
+    .ambient-blob {
+      animation: none !important;
+    }
+  }
+</style>
