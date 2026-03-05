@@ -6,10 +6,10 @@ import { contact } from "../data/contact"
   <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="text-center mb-16 reveal">
       <p class="text-gold text-sm uppercase tracking-[0.2em] mb-3 font-medium">
-        Kudy k nám
+        Kudy k nam
       </p>
       <h2 class="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-charcoal">
-        Jak se k nám dostat
+        Jak se k nam dostat
       </h2>
       <div class="w-16 h-0.5 bg-gold mx-auto mt-6"></div>
     </div>
@@ -19,76 +19,104 @@ import { contact } from "../data/contact"
       <div class="reveal">
         <div class="relative bg-white rounded-2xl shadow-lg p-6 sm:p-8 overflow-hidden">
           <svg
-            viewBox="0 0 500 400"
+            viewBox="0 0 500 440"
             class="w-full h-auto"
             role="img"
-            aria-label="Stylizovaná mapka přístupu do Salon SILI průchodem u OC Plaza"
+            aria-label="Orientacni schema pristupu do Salon SILI pruchodem pres OC Plaza"
           >
             <!-- Background -->
-            <rect width="500" height="400" fill="#faf7f2" rx="8" />
+            <rect width="500" height="440" fill="#faf7f2" rx="8" />
+
+            <!-- ============================================ -->
+            <!-- GEOGRAPHIC ORIENTATION: North = top           -->
+            <!-- Top: nam. Dr. E. Benese (Benesovo nam.)       -->
+            <!-- Bottom: Soukenne namesti                       -->
+            <!-- Right: Palachova ulice                         -->
+            <!-- Left: ul. 5. kvetna                            -->
+            <!-- ============================================ -->
 
             <!-- Streets -->
             <g fill="#f0ebe3" stroke="#e0d8cc" stroke-width="0.5">
-              <!-- Soukenné náměstí (horizontal, top area) -->
-              <rect x="30" y="80" width="440" height="60" rx="2" />
-              <!-- Benešovo náměstí (horizontal, bottom area) -->
-              <rect x="30" y="260" width="440" height="60" rx="2" />
-              <!-- Connecting street left -->
-              <rect x="60" y="80" width="50" height="240" rx="2" />
-              <!-- Connecting street right -->
-              <rect x="380" y="80" width="50" height="240" rx="2" />
+              <!-- nam. Dr. E. Benese (wide horizontal, top) -->
+              <rect x="20" y="40" width="460" height="65" rx="3" />
+              <!-- Soukenne namesti (wide horizontal, bottom) -->
+              <rect x="20" y="310" width="460" height="55" rx="3" />
+              <!-- Palachova ulice (vertical, right side) -->
+              <rect x="380" y="40" width="48" height="325" rx="2" />
+              <!-- ul. 5. kvetna (vertical, left side) -->
+              <rect x="70" y="40" width="42" height="325" rx="2" />
             </g>
 
             <!-- Street labels -->
-            <text x="250" y="106" text-anchor="middle" fill="#4a4a4a" font-size="11" font-family="Inter, system-ui" font-weight="500" opacity="0.7">
-              Soukenné náměstí
+            <text x="225" y="68" text-anchor="middle" fill="#4a4a4a" font-size="11" font-family="Inter, system-ui" font-weight="600" opacity="0.75">
+              nam. Dr. E. Benese
             </text>
-            <text x="250" y="286" text-anchor="middle" fill="#4a4a4a" font-size="11" font-family="Inter, system-ui" font-weight="500" opacity="0.7">
-              Benešovo náměstí
+            <text x="225" y="82" text-anchor="middle" fill="#4a4a4a" font-size="8" font-family="Inter, system-ui" opacity="0.5">
+              (Benesovo namesti)
+            </text>
+            <text x="225" y="342" text-anchor="middle" fill="#4a4a4a" font-size="11" font-family="Inter, system-ui" font-weight="600" opacity="0.75">
+              Soukenne namesti
+            </text>
+            <!-- Palachova - vertical label -->
+            <text transform="translate(414, 210) rotate(90)" text-anchor="middle" fill="#4a4a4a" font-size="9" font-family="Inter, system-ui" font-weight="500" opacity="0.6">
+              Palachova ul.
+            </text>
+            <!-- 5. kvetna - vertical label -->
+            <text transform="translate(82, 210) rotate(-90)" text-anchor="middle" fill="#4a4a4a" font-size="9" font-family="Inter, system-ui" font-weight="500" opacity="0.6">
+              ul. 5. kvetna
             </text>
 
-            <!-- Buildings block -->
+            <!-- Building blocks (neutral) -->
             <g fill="#e8e2d8" stroke="#d4cec4" stroke-width="0.5">
-              <!-- Left block -->
-              <rect x="110" y="140" width="100" height="120" rx="4" />
-              <!-- Right block -->
-              <rect x="290" y="140" width="90" height="120" rx="4" />
+              <!-- Block left of Plaza -->
+              <rect x="112" y="120" width="85" height="185" rx="4" />
+              <!-- Block right of Plaza -->
+              <rect x="310" y="120" width="70" height="185" rx="4" />
             </g>
 
             <!-- OC Plaza building -->
-            <rect x="210" y="140" width="80" height="55" rx="4" fill="#dcc9a0" fill-opacity="0.3" stroke="#c9a96e" stroke-width="1" />
-            <text x="250" y="164" text-anchor="middle" fill="#a8894e" font-size="10" font-family="Inter, system-ui" font-weight="600">
+            <rect x="197" y="185" width="113" height="120" rx="5" fill="#dcc9a0" fill-opacity="0.25" stroke="#c9a96e" stroke-width="1.2" />
+            <text x="253" y="230" text-anchor="middle" fill="#a8894e" font-size="12" font-family="Inter, system-ui" font-weight="700">
               OC Plaza
             </text>
-            <text x="250" y="180" text-anchor="middle" fill="#a8894e" font-size="8" font-family="Inter, system-ui" opacity="0.7">
-              (vstup)
+            <text x="253" y="248" text-anchor="middle" fill="#a8894e" font-size="8" font-family="Inter, system-ui" opacity="0.7">
+              nakupni centrum
             </text>
 
-            <!-- Passage / Průchod -->
-            <rect x="225" y="195" width="50" height="65" rx="2" fill="#faf7f2" stroke="#c9a96e" stroke-width="1.5" stroke-dasharray="6 3" />
-            <text x="250" y="225" text-anchor="middle" fill="#c9a96e" font-size="8" font-family="Inter, system-ui" font-weight="600" letter-spacing="0.5">
+            <!-- OC Plaza entrance marker (south side, facing Soukenne nam.) -->
+            <rect x="233" y="295" width="40" height="15" rx="3" fill="#dcc9a0" fill-opacity="0.5" stroke="#c9a96e" stroke-width="0.8" />
+            <text x="253" y="306" text-anchor="middle" fill="#a8894e" font-size="7" font-family="Inter, system-ui" font-weight="600">
+              VSTUP
+            </text>
+
+            <!-- Passage / Pruchod (through OC Plaza, south to north) -->
+            <rect x="233" y="120" width="40" height="75" rx="2" fill="#faf7f2" stroke="#c9a96e" stroke-width="1.5" stroke-dasharray="6 3" />
+            <text x="253" y="155" text-anchor="middle" fill="#c9a96e" font-size="8" font-family="Inter, system-ui" font-weight="600" letter-spacing="0.5">
               PRUCHOD
             </text>
+            <text x="253" y="167" text-anchor="middle" fill="#c9a96e" font-size="7" font-family="Inter, system-ui" opacity="0.7">
+              pasaz
+            </text>
 
-            <!-- Salon SILI marker -->
+            <!-- Salon SILI marker (north exit of passage, on Benesovo nam.) -->
             <g class="salon-marker">
               <!-- Building highlight -->
-              <rect x="275" y="235" width="50" height="25" rx="4" fill="#c9a96e" fill-opacity="0.15" stroke="#c9a96e" stroke-width="1.5" />
-              <text x="300" y="251" text-anchor="middle" fill="#c9a96e" font-size="7" font-family="Inter, system-ui" font-weight="700" letter-spacing="0.3">
+              <rect x="218" y="96" width="70" height="24" rx="4" fill="#c9a96e" fill-opacity="0.15" stroke="#c9a96e" stroke-width="1.5" />
+              <text x="253" y="112" text-anchor="middle" fill="#c9a96e" font-size="8" font-family="Inter, system-ui" font-weight="700" letter-spacing="0.5">
                 SALON SILI
               </text>
 
-              <!-- Pin icon -->
-              <g transform="translate(300, 212)">
+              <!-- Pin icon above salon -->
+              <g transform="translate(253, 78)">
                 <circle cx="0" cy="0" r="10" fill="#c9a96e" opacity="0.15" class="pin-pulse" />
                 <path d="M0-8 C-4.4-8-8-4.4-8 0 C-8 4.4 0 12 0 12 S8 4.4 8 0 C8-4.4 4.4-8 0-8Z" fill="#c9a96e" />
                 <circle cx="0" cy="0" r="3" fill="#ffffff" />
               </g>
             </g>
 
-            <!-- Walking route (dotted path from Plaza entrance through passage to salon) -->
+            <!-- Walking route: from entrance (south) through passage to salon (north) -->
             <path
-              d="M250 140 L250 195 L250 232 Q250 240 258 240 L275 245"
+              d="M253 295 L253 195 L253 120 L253 96"
               fill="none"
               stroke="#c9a96e"
               stroke-width="2.5"
@@ -97,44 +125,52 @@ import { contact } from "../data/contact"
               class="route-path"
             />
 
-            <!-- Route arrow start (at Plaza) -->
-            <circle cx="250" cy="140" r="5" fill="#c9a96e" opacity="0.6" />
-            <circle cx="250" cy="140" r="2.5" fill="#c9a96e" />
+            <!-- Route start marker (at entrance on Soukenne nam.) -->
+            <circle cx="253" cy="295" r="5" fill="#c9a96e" opacity="0.6" />
+            <circle cx="253" cy="295" r="2.5" fill="#c9a96e" />
 
             <!-- Walking person icon at start -->
-            <g transform="translate(265, 152)" fill="#c9a96e" opacity="0.8">
+            <g transform="translate(270, 288)" fill="#c9a96e" opacity="0.8">
               <circle cx="0" cy="-4" r="2.5" />
               <path d="M0 -1 L0 6 M-3 3 L0 0 L3 3 M-2 10 L0 6 L2 10" stroke="#c9a96e" stroke-width="1.2" fill="none" stroke-linecap="round" />
             </g>
 
+            <!-- Direction arrow along the route (pointing north/up) -->
+            <polygon points="253,140 248,150 258,150" fill="#c9a96e" opacity="0.6" />
+
             <!-- Legend -->
-            <g transform="translate(30, 340)">
+            <g transform="translate(20, 390)">
               <line x1="0" y1="0" x2="20" y2="0" stroke="#c9a96e" stroke-width="2.5" stroke-dasharray="1 6" stroke-linecap="round" />
-              <text x="28" y="4" fill="#4a4a4a" font-size="9" font-family="Inter, system-ui">Pesi trasa pruchod</text>
+              <text x="28" y="4" fill="#4a4a4a" font-size="9" font-family="Inter, system-ui">Pesi trasa pruchodem</text>
 
-              <rect x="150" y="-6" width="12" height="12" rx="2" fill="#dcc9a0" fill-opacity="0.3" stroke="#c9a96e" stroke-width="0.8" />
-              <text x="168" y="4" fill="#4a4a4a" font-size="9" font-family="Inter, system-ui">OC Plaza</text>
+              <rect x="160" y="-6" width="12" height="12" rx="2" fill="#dcc9a0" fill-opacity="0.3" stroke="#c9a96e" stroke-width="0.8" />
+              <text x="178" y="4" fill="#4a4a4a" font-size="9" font-family="Inter, system-ui">OC Plaza</text>
 
-              <path d="M280-4 C277.8-4 276-1.8 276 1 C276 3.8 280 9 280 9 S284 3.8 284 1 C284-1.8 282.2-4 280-4Z" fill="#c9a96e" />
-              <text x="290" y="4" fill="#4a4a4a" font-size="9" font-family="Inter, system-ui">Salon SILI</text>
+              <path d="M270-4 C267.8-4 266-1.8 266 1 C266 3.8 270 9 270 9 S274 3.8 274 1 C274-1.8 272.2-4 270-4Z" fill="#c9a96e" />
+              <text x="280" y="4" fill="#4a4a4a" font-size="9" font-family="Inter, system-ui">Salon SILI</text>
+            </g>
+
+            <!-- Compass (top-right corner) -->
+            <g transform="translate(455, 30)">
+              <circle cx="0" cy="0" r="14" fill="none" stroke="#c9a96e" stroke-width="0.8" opacity="0.4" />
+              <text x="0" y="-4" text-anchor="middle" fill="#c9a96e" font-size="8" font-family="Inter, system-ui" font-weight="700" opacity="0.6">S</text>
+              <line x1="0" y1="4" x2="0" y2="10" stroke="#c9a96e" stroke-width="0.8" opacity="0.4" />
             </g>
 
             <!-- Decorative corner accents -->
-            <line x1="15" y1="20" x2="15" y2="35" stroke="#c9a96e" stroke-width="1" opacity="0.3" />
-            <line x1="15" y1="20" x2="30" y2="20" stroke="#c9a96e" stroke-width="1" opacity="0.3" />
-            <line x1="485" y1="20" x2="485" y2="35" stroke="#c9a96e" stroke-width="1" opacity="0.3" />
-            <line x1="470" y1="20" x2="485" y2="20" stroke="#c9a96e" stroke-width="1" opacity="0.3" />
-            <line x1="15" y1="380" x2="15" y2="365" stroke="#c9a96e" stroke-width="1" opacity="0.3" />
-            <line x1="15" y1="380" x2="30" y2="380" stroke="#c9a96e" stroke-width="1" opacity="0.3" />
-            <line x1="485" y1="380" x2="485" y2="365" stroke="#c9a96e" stroke-width="1" opacity="0.3" />
-            <line x1="470" y1="380" x2="485" y2="380" stroke="#c9a96e" stroke-width="1" opacity="0.3" />
+            <line x1="15" y1="15" x2="15" y2="30" stroke="#c9a96e" stroke-width="1" opacity="0.3" />
+            <line x1="15" y1="15" x2="30" y2="15" stroke="#c9a96e" stroke-width="1" opacity="0.3" />
+            <line x1="485" y1="15" x2="485" y2="30" stroke="#c9a96e" stroke-width="1" opacity="0.3" />
+            <line x1="470" y1="15" x2="485" y2="15" stroke="#c9a96e" stroke-width="1" opacity="0.3" />
+            <line x1="15" y1="425" x2="15" y2="410" stroke="#c9a96e" stroke-width="1" opacity="0.3" />
+            <line x1="15" y1="425" x2="30" y2="425" stroke="#c9a96e" stroke-width="1" opacity="0.3" />
+            <line x1="485" y1="425" x2="485" y2="410" stroke="#c9a96e" stroke-width="1" opacity="0.3" />
+            <line x1="470" y1="425" x2="485" y2="425" stroke="#c9a96e" stroke-width="1" opacity="0.3" />
 
-            <!-- Compass -->
-            <g transform="translate(440, 60)">
-              <circle cx="0" cy="0" r="14" fill="none" stroke="#c9a96e" stroke-width="0.8" opacity="0.4" />
-              <text x="0" y="-5" text-anchor="middle" fill="#c9a96e" font-size="8" font-family="Inter, system-ui" font-weight="700" opacity="0.6">S</text>
-              <line x1="0" y1="4" x2="0" y2="10" stroke="#c9a96e" stroke-width="0.8" opacity="0.4" />
-            </g>
+            <!-- "Orientacni schema" note -->
+            <text x="250" y="432" text-anchor="middle" fill="#4a4a4a" font-size="8" font-family="Inter, system-ui" font-style="italic" opacity="0.45">
+              Orientacni schema -- zjednoduseno
+            </text>
           </svg>
 
           <style>
@@ -170,10 +206,11 @@ import { contact } from "../data/contact"
       <div class="reveal space-y-8">
         <div>
           <h3 class="font-display text-xl sm:text-2xl font-semibold text-charcoal mb-6">
-            Průchodem u Plazy za minutu
+            Pruchodem pres Plazu za minutu
           </h3>
           <p class="text-charcoal-light leading-relaxed mb-8">
-            Salon se nachází na Benešově náměstí 2, nejsnáze se k nám dostanete průchodem od OC Plaza.
+            Salon se nachazi na Benesove namesti 2, primo u vychodu z pasaze OC Plaza.
+            Nejsnaze se k nam dostanete pruchodem ze Soukenneho namesti.
           </p>
         </div>
 
@@ -201,7 +238,7 @@ import { contact } from "../data/contact"
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
             </svg>
-            Otevřít v mapách
+            Otevrit v mapach
           </a>
         </div>
       </div>

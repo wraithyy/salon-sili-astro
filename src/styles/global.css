@@ -18,13 +18,13 @@
 @theme {
   --color-cream: #faf7f2;
   --color-cream-dark: #f0ebe3;
-  --color-gold: #c9a96e;
-  --color-gold-light: #dcc9a0;
-  --color-gold-dark: #a8894e;
-  --color-charcoal: #2d2d2d;
-  --color-charcoal-light: #4a4a4a;
-  --color-rose: #d4a0a0;
-  --color-rose-light: #e8c5c5;
+  --color-gold: #b89b5e;
+  --color-gold-light: #d4be8a;
+  --color-gold-dark: #9a7f44;
+  --color-charcoal: #2a2a2a;
+  --color-charcoal-light: #5a5a5a;
+  --color-rose: #c4918f;
+  --color-rose-light: #e0c0bf;
   --color-white: #ffffff;
 
   --font-sans: "Inter", system-ui, -apple-system, sans-serif;
@@ -34,6 +34,12 @@
 
 html {
   scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
 }
 
 body {
@@ -53,20 +59,9 @@ body {
   animation: gradient-shift 8s ease infinite;
 }
 
-@keyframes reveal-up {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
 .reveal {
   opacity: 0;
-  transform: translateY(30px);
+  transform: translateY(24px);
   transition: opacity 0.6s ease, transform 0.6s ease;
 }
 
@@ -75,24 +70,14 @@ body {
   transform: translateY(0);
 }
 
-/* Brush-accent section divider */
-.brush-divider {
-  position: relative;
-  height: 80px;
-  overflow: hidden;
-  opacity: 0.12;
-  pointer-events: none;
-}
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
 
-.brush-divider img {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%) rotate(-8deg);
-  width: 480px;
-  max-width: 90vw;
-  height: auto;
-  mix-blend-mode: multiply;
-  filter: sepia(0.3) saturate(1.4);
+  .gradient-animate {
+    animation: none;
+  }
 }
-
