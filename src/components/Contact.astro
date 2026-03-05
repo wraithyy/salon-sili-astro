@@ -1,0 +1,63 @@
+---
+import { contact } from "../data/contact"
+---
+
+<section id="kontakt" class="py-20 sm:py-28 bg-charcoal text-white relative overflow-hidden">
+  <!-- Decorative gradient -->
+  <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_rgba(201,169,110,0.15)_0%,_transparent_60%)]"></div>
+
+  <div class="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16 reveal">
+      <p class="text-gold-light text-sm uppercase tracking-[0.2em] mb-3 font-medium">
+        Těšíme se na vás
+      </p>
+      <h2 class="font-display text-3xl sm:text-4xl lg:text-5xl font-bold">
+        Kontakt
+      </h2>
+      <div class="w-16 h-0.5 bg-gold mx-auto mt-6"></div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12 text-center">
+      <!-- Phone -->
+      <div class="reveal">
+        <div class="inline-flex items-center justify-center w-14 h-14 rounded-full bg-gold/10 text-gold mb-4">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+          </svg>
+        </div>
+        <h3 class="font-display text-lg font-semibold mb-2">Telefon</h3>
+        <a href={`tel:${contact.phone.replace(/\s/g, "")}`} class="text-white/70 hover:text-gold transition-colors">
+          {contact.phone}
+        </a>
+      </div>
+
+      <!-- Email -->
+      <div class="reveal" style="transition-delay: 100ms">
+        <div class="inline-flex items-center justify-center w-14 h-14 rounded-full bg-gold/10 text-gold mb-4">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+          </svg>
+        </div>
+        <h3 class="font-display text-lg font-semibold mb-2">E-mail</h3>
+        <a href={`mailto:${contact.email}`} class="text-white/70 hover:text-gold transition-colors">
+          {contact.email}
+        </a>
+      </div>
+
+      <!-- Address -->
+      <div class="reveal" style="transition-delay: 200ms">
+        <div class="inline-flex items-center justify-center w-14 h-14 rounded-full bg-gold/10 text-gold mb-4">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+          </svg>
+        </div>
+        <h3 class="font-display text-lg font-semibold mb-2">Adresa</h3>
+        <p class="text-white/70">
+          {contact.address.street}<br />
+          {contact.address.city}, {contact.address.zip}
+        </p>
+      </div>
+    </div>
+  </div>
+</section>

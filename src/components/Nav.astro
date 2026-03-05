@@ -1,0 +1,110 @@
+---
+const links = [
+  { href: "#sluzby", label: "Služby" },
+  { href: "#cenik", label: "Ceník" },
+  { href: "#kde-nas-najdete", label: "Kde nás najdete" },
+  { href: "#kontakt", label: "Kontakt" },
+]
+---
+
+<nav
+  class="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
+  id="main-nav"
+>
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16 sm:h-20">
+      <a
+        href="#"
+        class="font-display text-xl sm:text-2xl font-bold tracking-wide text-white transition-colors duration-300"
+        id="nav-logo"
+      >
+        Salon SILI
+      </a>
+
+      <!-- Desktop nav -->
+      <div class="hidden md:flex items-center gap-8">
+        {links.map((link) => (
+          <a
+            href={link.href}
+            class="text-sm font-medium text-white/80 hover:text-white transition-colors duration-200 tracking-wide uppercase"
+            id={`nav-link-${link.href.slice(1)}`}
+          >
+            {link.label}
+          </a>
+        ))}
+      </div>
+
+      <!-- Mobile hamburger -->
+      <button
+        class="md:hidden flex flex-col gap-1.5 p-2"
+        id="mobile-menu-btn"
+        aria-label="Otevřít menu"
+        aria-expanded="false"
+      >
+        <span class="block w-6 h-0.5 bg-white transition-all duration-300" id="hamburger-top"></span>
+        <span class="block w-6 h-0.5 bg-white transition-all duration-300" id="hamburger-mid"></span>
+        <span class="block w-6 h-0.5 bg-white transition-all duration-300" id="hamburger-bot"></span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile menu -->
+  <div
+    class="md:hidden overflow-hidden max-h-0 transition-all duration-300 bg-charcoal/95 backdrop-blur-sm"
+    id="mobile-menu"
+  >
+    <div class="px-4 py-4 flex flex-col gap-3">
+      {links.map((link) => (
+        <a
+          href={link.href}
+          class="text-white/80 hover:text-white py-2 text-sm uppercase tracking-wide font-medium mobile-link"
+        >
+          {link.label}
+        </a>
+      ))}
+    </div>
+  </div>
+</nav>
+
+<script>
+  const nav = document.getElementById("main-nav")!
+  const logo = document.getElementById("nav-logo")!
+  const menuBtn = document.getElementById("mobile-menu-btn")!
+  const mobileMenu = document.getElementById("mobile-menu")!
+  const hamburgerTop = document.getElementById("hamburger-top")!
+  const hamburgerMid = document.getElementById("hamburger-mid")!
+  const hamburgerBot = document.getElementById("hamburger-bot")!
+
+  let menuOpen = false
+
+  window.addEventListener("scroll", () => {
+    const scrolled = window.scrollY > 50
+    nav.classList.toggle("bg-charcoal/95", scrolled)
+    nav.classList.toggle("backdrop-blur-sm", scrolled)
+    nav.classList.toggle("shadow-lg", scrolled)
+  })
+
+  menuBtn.addEventListener("click", () => {
+    menuOpen = !menuOpen
+    menuBtn.setAttribute("aria-expanded", String(menuOpen))
+    mobileMenu.style.maxHeight = menuOpen
+      ? `${mobileMenu.scrollHeight}px`
+      : "0"
+    hamburgerTop.classList.toggle("translate-y-[4px]", menuOpen)
+    hamburgerTop.classList.toggle("rotate-45", menuOpen)
+    hamburgerMid.classList.toggle("opacity-0", menuOpen)
+    hamburgerBot.classList.toggle("-translate-y-[4px]", menuOpen)
+    hamburgerBot.classList.toggle("-rotate-45", menuOpen)
+  })
+
+  document.querySelectorAll(".mobile-link").forEach((link) => {
+    link.addEventListener("click", () => {
+      menuOpen = false
+      menuBtn.setAttribute("aria-expanded", "false")
+      mobileMenu.style.maxHeight = "0"
+      hamburgerTop.classList.remove("translate-y-[4px]", "rotate-45")
+      hamburgerMid.classList.remove("opacity-0")
+      hamburgerBot.classList.remove("-translate-y-[4px]", "-rotate-45")
+    })
+  })
+</script>

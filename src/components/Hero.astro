@@ -1,0 +1,72 @@
+---
+
+---
+
+<section
+  class="relative min-h-screen flex items-center justify-center overflow-hidden"
+  id="hero"
+>
+  <!-- Animated gradient background -->
+  <div
+    class="absolute inset-0 gradient-animate bg-gradient-to-br from-charcoal via-charcoal-light to-charcoal"
+  ></div>
+
+  <!-- Decorative overlay -->
+  <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_transparent_0%,_rgba(0,0,0,0.3)_100%)]"></div>
+
+  <!-- Particles container -->
+  <div class="absolute inset-0" id="particles"></div>
+
+  <!-- Content -->
+  <div class="relative z-10 text-center px-4 max-w-3xl mx-auto">
+    <p
+      class="text-gold-light text-sm sm:text-base uppercase tracking-[0.3em] mb-4 sm:mb-6 font-medium"
+    >
+      Liberec &middot; Benešovo náměstí
+    </p>
+    <h1 class="font-display text-5xl sm:text-7xl lg:text-8xl text-white font-bold mb-6 sm:mb-8 leading-tight">
+      Salon<br />
+      <span class="text-gold italic">SILI</span>
+    </h1>
+    <p class="text-white/70 text-lg sm:text-xl max-w-xl mx-auto mb-8 sm:mb-12 leading-relaxed">
+      Soukromý kosmetický salón v samém centru Liberce. Profesionální pedikúra,
+      podologie a manikúra.
+    </p>
+    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+      <a
+        href="#cenik"
+        class="inline-flex items-center justify-center px-8 py-3.5 bg-gold text-white font-medium rounded-full hover:bg-gold-dark transition-colors duration-300 text-sm uppercase tracking-wider"
+      >
+        Zobrazit ceník
+      </a>
+      <a
+        href="#kontakt"
+        class="inline-flex items-center justify-center px-8 py-3.5 border border-white/30 text-white font-medium rounded-full hover:bg-white/10 transition-colors duration-300 text-sm uppercase tracking-wider"
+      >
+        Kontaktujte nás
+      </a>
+    </div>
+  </div>
+
+  <!-- Scroll indicator -->
+  <div class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
+    <svg class="w-6 h-6 text-white/40" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+    </svg>
+  </div>
+</section>
+
+<script>
+  const container = document.getElementById("particles")!
+
+  for (let i = 0; i < 20; i++) {
+    const particle = document.createElement("div")
+    particle.classList.add("particle")
+    particle.style.left = `${Math.random() * 100}%`
+    particle.style.top = `${Math.random() * 100}%`
+    particle.style.width = `${3 + Math.random() * 5}px`
+    particle.style.height = particle.style.width
+    particle.style.animation = `float ${8 + Math.random() * 12}s linear ${Math.random() * 10}s infinite`
+    container.appendChild(particle)
+  }
+</script>
