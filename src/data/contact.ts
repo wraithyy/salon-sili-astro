@@ -1,7 +1,7 @@
 export const contact = {
   name: "Salon SILI",
   address: {
-    street: "Benešovo náměstí 2",
+    street: "náměstí Dr. E. Beneše 3/4",
     city: "Liberec 1",
     zip: "460 01",
   },
@@ -13,9 +13,9 @@ export const contact = {
     { day: "Neděle", time: "Zavřeno" },
   ],
   mapUrl:
-    "https://maps.google.com/maps?q=Bene%C5%A1ovo+n%C3%A1m%C4%9Bst%C3%AD+2,+Liberec&t=&z=16&ie=UTF8&iwloc=&output=embed",
+    "https://maps.google.com/maps?q=n%C3%A1m%C4%9Bst%C3%AD+Dr.+E.+Bene%C5%A1e+3%2F4,+Liberec&t=&z=17&ie=UTF8&iwloc=&output=embed",
   mapLink:
-    "https://www.google.com/maps/place/Bene%C5%A1ovo+n%C3%A1m.+2,+460+01+Liberec/",
+    "https://www.google.com/maps/search/?api=1&query=n%C3%A1m%C4%9Bst%C3%AD+Dr.+E.+Bene%C5%A1e+3%2F4,+Liberec",
   directions: [
     { step: 1, text: "Najděte OC Plaza na Soukenném náměstí" },
     { step: 2, text: "Vejděte do průchodu vedle Plazy směrem k Benešovu náměstí" },

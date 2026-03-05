@@ -14,6 +14,18 @@
   <!-- Decorative overlay -->
   <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_transparent_0%,_rgba(0,0,0,0.3)_100%)]"></div>
 
+  <!-- Brand brush accent (visible but elegant) -->
+  <div class="absolute inset-0 pointer-events-none overflow-hidden" aria-hidden="true">
+    <img
+      src={`${import.meta.env.BASE_URL}/img/brush-sm.jpg`}
+      alt=""
+      class="hero-brush"
+      loading="eager"
+      width="1600"
+      height="900"
+    />
+  </div>
+
   <!-- Ambient blobs: soft drifting color shapes for depth -->
   <div class="absolute inset-0 overflow-hidden" aria-hidden="true" id="ambient-blobs">
     <div class="ambient-blob ambient-blob--gold"></div>
@@ -61,11 +73,24 @@
 </section>
 
 <style>
+  .hero-brush {
+    position: absolute;
+    right: -8%;
+    top: 48%;
+    transform: translateY(-50%);
+    width: min(70vw, 900px);
+    opacity: 0.34;
+    mix-blend-mode: soft-light;
+    filter: saturate(0.9) contrast(1.02);
+    mask-image: radial-gradient(ellipse 68% 60% at 62% 50%, black 35%, transparent 82%);
+    -webkit-mask-image: radial-gradient(ellipse 68% 60% at 62% 50%, black 35%, transparent 82%);
+  }
+
   .ambient-blob {
     position: absolute;
     border-radius: 50%;
     filter: blur(80px);
-    opacity: 0.12;
+    opacity: 0.1;
     pointer-events: none;
     will-change: transform;
   }
@@ -119,9 +144,21 @@
     to   { transform: translate(-8vw, 8vh) scale(1.2); }
   }
 
+  @media (max-width: 768px) {
+    .hero-brush {
+      width: 95vw;
+      right: -28%;
+      opacity: 0.28;
+    }
+  }
+
   @media (prefers-reduced-motion: reduce) {
     .ambient-blob {
       animation: none !important;
+    }
+
+    .hero-brush {
+      transform: translateY(-50%);
     }
   }
 </style>
