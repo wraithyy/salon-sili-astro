@@ -3,78 +3,113 @@ import { contact } from "../data/contact"
 ---
 
 <section id="jak-se-k-nam-dostat" class="py-20 sm:py-28 bg-cream">
-  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="text-center mb-12 reveal">
       <p class="text-gold text-sm uppercase tracking-[0.2em] mb-3 font-medium">
         Kudy k nám
       </p>
       <h2 class="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-charcoal">
-        Orientační mapka vstupu
+        Orientační mapa
       </h2>
       <div class="w-16 h-0.5 bg-gold mx-auto mt-6"></div>
     </div>
 
     <div class="reveal">
-      <div class="relative bg-white rounded-2xl shadow-lg p-5 sm:p-8 overflow-hidden">
-        <svg
-          viewBox="0 0 900 560"
-          class="w-full h-auto"
-          role="img"
-          aria-label="Orientační schéma vstupu do Salonu SILI od OC Plaza a z náměstí Dr. E. Beneše"
-        >
-          <rect width="900" height="560" fill="#faf7f2" rx="12" />
+      <div class="relative bg-white rounded-2xl shadow-lg overflow-hidden">
+        <!-- Map -->
+        <div class="p-4 sm:p-6 lg:p-8">
+          <svg
+            viewBox="0 0 880 520"
+            class="w-full h-auto"
+            role="img"
+            aria-label="Orientační schéma: modrá trasa od OC Plaza přes průchod, červená trasa z náměstí Dr. E. Beneše"
+          >
+            <defs>
+              <marker id="arrow-blue" viewBox="0 0 10 8" refX="8" refY="4" markerWidth="8" markerHeight="6" orient="auto">
+                <path d="M0 0 L10 4 L0 8 Z" fill="#2563eb" />
+              </marker>
+              <marker id="arrow-red" viewBox="0 0 10 8" refX="8" refY="4" markerWidth="8" markerHeight="6" orient="auto">
+                <path d="M0 0 L10 4 L0 8 Z" fill="#dc2626" />
+              </marker>
+            </defs>
 
-          <!-- ulice a bloky -->
-          <rect x="38" y="68" width="824" height="86" rx="8" fill="#efe8dc" />
-          <text x="450" y="120" text-anchor="middle" fill="#6a6256" font-size="22" font-family="Inter, system-ui" font-weight="600">
-            nám. Dr. E. Beneše
-          </text>
+            <!-- Background -->
+            <rect width="880" height="520" fill="#faf7f2" rx="8" />
 
-          <rect x="38" y="392" width="824" height="86" rx="8" fill="#efe8dc" />
-          <text x="450" y="444" text-anchor="middle" fill="#6a6256" font-size="20" font-family="Inter, system-ui" font-weight="600">
-            Soukenné náměstí
-          </text>
+            <!-- Street: nám. Dr. E. Beneše -->
+            <rect x="30" y="60" width="820" height="72" rx="6" fill="#f0ebe3" />
+            <text x="440" y="104" text-anchor="middle" fill="#8a7e6e" font-size="15" font-family="Inter, system-ui" font-weight="600" letter-spacing="0.05em">
+              NÁM. DR. E. BENEŠE
+            </text>
 
-          <rect x="85" y="160" width="180" height="220" rx="10" fill="#e7dfd3" />
-          <rect x="635" y="160" width="180" height="220" rx="10" fill="#e7dfd3" />
+            <!-- Street: Soukenné nám. -->
+            <rect x="30" y="380" width="820" height="68" rx="6" fill="#f0ebe3" />
+            <text x="440" y="420" text-anchor="middle" fill="#8a7e6e" font-size="14" font-family="Inter, system-ui" font-weight="500" letter-spacing="0.04em">
+              SOUKENNÉ NÁM.
+            </text>
 
-          <!-- plaza + průchod -->
-          <rect x="300" y="184" width="300" height="196" rx="12" fill="#dcc9a0" fill-opacity="0.3" stroke="#b89b5e" stroke-width="2"/>
-          <text x="450" y="255" text-anchor="middle" fill="#9a7f44" font-size="28" font-family="Inter, system-ui" font-weight="700">OC Plaza</text>
-          <text x="450" y="282" text-anchor="middle" fill="#9a7f44" font-size="14" font-family="Inter, system-ui">(parkování)</text>
+            <!-- City blocks -->
+            <rect x="60" y="138" width="170" height="234" rx="8" fill="#efe8dc" />
+            <rect x="650" y="138" width="170" height="234" rx="8" fill="#efe8dc" />
 
-          <rect x="423" y="146" width="54" height="238" rx="7" fill="#fffaf0" stroke="#b89b5e" stroke-width="2" stroke-dasharray="8 6" />
-          <text x="450" y="206" text-anchor="middle" fill="#9a7f44" font-size="14" font-family="Inter, system-ui" font-weight="700">PRŮCHOD</text>
-          <text x="450" y="224" text-anchor="middle" fill="#9a7f44" font-size="12" font-family="Inter, system-ui">skrz budovu</text>
+            <!-- OC Plaza -->
+            <rect x="280" y="168" width="320" height="204" rx="10" fill="#e8dcc5" fill-opacity="0.35" stroke="#c9a96e" stroke-width="1.5" />
+            <text x="440" y="255" text-anchor="middle" fill="#9a7f44" font-size="22" font-family="Inter, system-ui" font-weight="700" letter-spacing="0.03em">OC PLAZA</text>
+            <text x="440" y="278" text-anchor="middle" fill="#b89b5e" font-size="11" font-family="Inter, system-ui" font-weight="500" letter-spacing="0.06em">PARKOVÁNÍ</text>
 
-          <!-- salon -->
-          <rect x="392" y="92" width="116" height="42" rx="8" fill="#b89b5e" fill-opacity="0.12" stroke="#b89b5e" stroke-width="2"/>
-          <text x="450" y="118" text-anchor="middle" fill="#9a7f44" font-size="16" font-family="Inter, system-ui" font-weight="700">SALON SILI</text>
+            <!-- Passage -->
+            <rect x="412" y="130" width="56" height="242" rx="6" fill="#fffbf2" stroke="#c9a96e" stroke-width="1.5" stroke-dasharray="6 5" />
+            <text x="440" y="196" text-anchor="middle" fill="#9a7f44" font-size="10" font-family="Inter, system-ui" font-weight="700" letter-spacing="0.06em" transform="rotate(-90, 440, 196)">PRŮCHOD</text>
 
-          <!-- modrá trasa -->
-          <path d="M450 435 L450 382 L450 146 L450 113" fill="none" stroke="#2563eb" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
-          <circle cx="450" cy="435" r="8" fill="#2563eb" />
+            <!-- Salon marker -->
+            <rect x="400" y="76" width="80" height="38" rx="6" fill="#b89b5e" />
+            <text x="440" y="100" text-anchor="middle" fill="#ffffff" font-size="12" font-family="Inter, system-ui" font-weight="700" letter-spacing="0.04em">SALON SILI</text>
 
-          <!-- červená trasa -->
-          <path d="M300 112 L392 112" fill="none" stroke="#dc2626" stroke-width="7" stroke-linecap="round" />
-          <circle cx="300" cy="112" r="8" fill="#dc2626" />
+            <!-- Blue route: from Soukenné through passage to salon -->
+            <path
+              d="M440 415 L440 372 L440 130"
+              fill="none"
+              stroke="#2563eb"
+              stroke-width="5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-dasharray="0"
+              marker-end="url(#arrow-blue)"
+            />
+            <!-- Blue start dot -->
+            <circle cx="440" cy="415" r="6" fill="#2563eb" />
+            <circle cx="440" cy="415" r="3" fill="#ffffff" />
 
-          <!-- šipky -->
-          <polygon points="450,126 440,146 460,146" fill="#2563eb"/>
-          <polygon points="374,102 392,112 374,122" fill="#dc2626"/>
+            <!-- Red route: from náměstí to salon -->
+            <path
+              d="M285 95 L400 95"
+              fill="none"
+              stroke="#dc2626"
+              stroke-width="5"
+              stroke-linecap="round"
+              marker-end="url(#arrow-red)"
+            />
+            <!-- Red start dot -->
+            <circle cx="285" cy="95" r="6" fill="#dc2626" />
+            <circle cx="285" cy="95" r="3" fill="#ffffff" />
 
-          <!-- legenda -->
-          <rect x="48" y="494" width="804" height="48" rx="10" fill="#f4ede2" />
-          <line x1="84" y1="519" x2="130" y2="519" stroke="#2563eb" stroke-width="6" stroke-linecap="round"/>
-          <text x="142" y="524" fill="#4a433a" font-size="16" font-family="Inter, system-ui">Modrá: od OC Plaza (parkování) přes průchod</text>
+            <!-- Legend bar -->
+            <rect x="30" y="462" width="820" height="44" rx="8" fill="#f4ede2" />
 
-          <line x1="540" y1="519" x2="586" y2="519" stroke="#dc2626" stroke-width="6" stroke-linecap="round"/>
-          <text x="598" y="524" fill="#4a433a" font-size="16" font-family="Inter, system-ui">Červená: z náměstí Dr. E. Beneše</text>
-        </svg>
+            <!-- Blue legend -->
+            <circle cx="60" cy="484" r="4" fill="#2563eb" />
+            <line x1="72" y1="484" x2="108" y2="484" stroke="#2563eb" stroke-width="4" stroke-linecap="round" />
+            <text x="118" y="489" fill="#5a5247" font-size="13" font-family="Inter, system-ui" font-weight="500">Od OC Plaza přes průchod</text>
 
-        <p class="text-xs text-charcoal-light/70 mt-3 italic">Orientační schéma</p>
+            <!-- Red legend -->
+            <circle cx="490" cy="484" r="4" fill="#dc2626" />
+            <line x1="502" y1="484" x2="538" y2="484" stroke="#dc2626" stroke-width="4" stroke-linecap="round" />
+            <text x="548" y="489" fill="#5a5247" font-size="13" font-family="Inter, system-ui" font-weight="500">Z nám. Dr. E. Beneše</text>
+          </svg>
+        </div>
 
-        <div class="mt-6 flex justify-center">
+        <!-- CTA -->
+        <div class="px-6 pb-6 sm:px-8 sm:pb-8 flex justify-center">
           <a
             href={contact.mapLink}
             target="_blank"
